@@ -9,6 +9,7 @@ import { DisplayCardsComponent } from './components/display-cards/display-cards.
 import { ImagesComponent } from './components/images/images.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { StarsComponent } from './components/stars/stars.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     ImageComponent,
     CardComponent,
     DisplayCardsComponent,
-    ImagesComponent
+    ImagesComponent,
+    StarsComponent
   ],
   imports: [
     BrowserModule,

@@ -9,5 +9,10 @@ export class ImagesService {
   constructor() { }
 
   imagesArray: Card[] = [];
+  
+  removeImageById(id:string) {
+    this.imagesArray = this.imagesArray.filter(image => image.id!== id);
+    console.log(this.imagesArray.length);
+  }
 
 }

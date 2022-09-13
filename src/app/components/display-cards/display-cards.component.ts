@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Card } from 'src/app/modules/card.model';
+import { ImagesService } from 'src/app/services/images.service';
 
 @Component({
   selector: 'app-display-cards',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayCardsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private imgService: ImagesService) { }
+
+  imagesArray:Card[] = this.imgService.imagesArray;
 
   ngOnInit(): void {
   }
