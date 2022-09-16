@@ -9,11 +9,10 @@ export class ImagesService {
   constructor() { }
 
   imagesArray: Card[] = [];
-  page:number = 2;
+  page:number = 1;
   
   removeImageById(id:string) {
     this.imagesArray = this.imagesArray.filter(image => image.id!== id);
     console.log(this.imagesArray.length);
   }
-
 }

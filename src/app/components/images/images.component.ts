@@ -12,9 +12,7 @@ export class ImagesComponent implements OnInit {
 
   constructor(private http: HttpClient, private imgService: ImagesService) { }
 
-  // API_URL = 'https://picsum.photos/v2/list';
-  API_URL = `https://picsum.photos/v2/list?page=${this.imgService.page}&limit=3`;
-  // API_URL = 'https://picsum.photos/v2/list?page=2&limit=5';
+  API_URL = '';
   
   imagesArray:Card[] = this.imgService.imagesArray;
 
@@ -22,14 +20,16 @@ export class ImagesComponent implements OnInit {
   }
 
   addRandomImages() {
+    this.API_URL = `https://picsum.photos/v2/list?page=${this.imgService.page}&limit=10`;
     this.http.get(this.API_URL).subscribe({
     next: (imagesArray:any) => {
       imagesArray.forEach((image:any) => 
-      this.imgService.imagesArray.push(new Card(image.author,image.download_url)))
-      this.imgService.page++;
-      console.log(this.imgService.page);
-      console.log(this.imagesArray);
-    },
+        this.imgService.imagesArray.push(new Card(image.author,image.download_url)))
+        console.log(this.API_URL);
+        console.log("page "+this.imgService.page);
+        console.log(this.imagesArray);
+        this.imgService.page++;
+      },
     error: (e) => console.error(e),
     complete: () => console.info('complete') 
     })
